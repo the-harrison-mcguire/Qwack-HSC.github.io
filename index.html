@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trial Study</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="HSC.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trial Study</title>
 
-    <style>
-        /* Remove default browser gaps and fill screen */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* Use Flexbox to stack the header and calendar vertically */
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+  <link rel="icon" type="image/png" href="HSC.png">
 
-        header {
-            background: #f0f4f9; /* Optional visual background */
-        }
+  <style>
+    :root {
+      --accent: #0b57d0;
+      --bg: #f0f4f9;
+      --header-padding: 1rem;
+    }
 
-        /* Formatting fix: Removes the dot from the list */
-        header ul {
-            list-style-type: none; 
-            margin: 0;
-            padding: 15px; /* Adds space inside your navigation bar */
-        }
+    * { box-sizing: border-box; }
 
-        header ul li {
-            font-size: xx-large;
-            font-style: italic;
-            font-weight: 500;
-            font-family: 'Open Sans', sans-serif;
-            color: #0b57d0;
-        }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #0a0a0a;
+    }
 
-        /* Force container to take up all remaining vertical space */
-        .calendar-container {
-            flex-grow: 1;
-            width: 100%;
-        }
+    /* layout */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        /* Stretch the iframe to 100% of the parent container */
-        .calendar-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none; /* Removes the default ugly border */
-        }
-    </style>
+    header {
+      background: var(--bg);
+      padding: var(--header-padding);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* fill remaining vertical space for the calendar */
+    .calendar-container {
+      flex: 1 1 auto;
+      min-height: 0; /* allow the flex child to shrink correctly */
+      width: 100%;
+    }
+
+    .calendar-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <ul>
-            <li>Trial Study Timetable</li>
-        </ul>
-    </header>
-    <div class="calendar-container">
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FSydney&showPrint=0&showTitle=0&showCalendars=0&showTz=0&showTabs=0&mode=WEEK&src=Y182MGU3ZDMyZDg2Yjg5OTM0YzM0YTlmYWEyZGM4NDE5NjRjZWZjMzg4OTIzZGFjZTkzNWY2M2M3NTFkYmYwOTQ1QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=Y183NzI1YWYzYzZjZTJkMzRmNGE4ZDdlNDIzM2JhZGVkZTQwZmI2MGEwMGNjNTkxYzE3NGRlOThlZTRkN2RlYmRlQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23e67c73&color=%237cb342" style="border-width:0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-    </div>
+  <header>
+    <h1>Trial Study Timetable</h1>
+  </header>
+
+  <main class="calendar-container" role="main">
+    <iframe
+      title="Trial Study Google Calendar"
+      src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FSydney&showPrint=0&showTitle=0&showCalendars=0&showTz=0&showTabs=0&mode=WEEK&src=Y182MGU3ZDMyZDg2Yjg5O[...INSERT FULL SRC HERE...]"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </main>
+</body>
+</html>
